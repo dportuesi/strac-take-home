@@ -1,8 +1,26 @@
+# Strac Take home test
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, visit the google console and generate an [oauth key](https://developers.google.com/identity/protocols/oauth2) for your project.
+Ensure you add the "Drive api" scope to allow your token to validate drive api requests
+
+### Environment variables.
+
+Add a .env file to the root directory of this project and add your keys from the console like so:
+````
+GOOGLE_CLIENT_ID=<id>
+GOOGLE_CLIENT_SECRET=<secret>
+REDIRECT_URL=http://localhost:3000/auth/callback
+````
+
+make sure your redirect url is specified in your client id settings on the cloud console
+
+![img.png](img.png)
+
+finally, run the development server:
 
 ```bash
 npm run dev
@@ -16,9 +34,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Testing
+This project uses jest and react testing library. Please run
+```
+npm run test
+```
+to kick of the jest test watcher.
 
 ## Learn More
 
